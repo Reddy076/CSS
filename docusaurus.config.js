@@ -79,6 +79,7 @@ const config = {
         logo: {
           alt: 'WebDev Logo',
           src: 'img/logo.svg',
+          href: '/Introduction/css-syntax',
         },
         items: [
           {
@@ -109,7 +110,7 @@ const config = {
             items: [
               {
                 label: 'CSS Basics',
-                to: '/Introduction/getting-started',
+                to: '/Introduction/css-syntax',
               },
               {
                 label: 'JavaScript',

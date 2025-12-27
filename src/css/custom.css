@@ -272,26 +272,70 @@ tr:hover td {
 /* ===== Details / Accordion ===== */
 details {
   border-radius: 12px;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   margin-bottom: 1rem;
-  background: rgba(102, 126, 234, 0.05);
-  border: 1px solid rgba(102, 126, 234, 0.15);
+  background: rgba(102, 126, 234, 0.08);
+  border: 1px solid rgba(102, 126, 234, 0.2);
   transition: all 0.3s ease;
 }
 
 details:hover {
-  border-color: rgba(102, 126, 234, 0.3);
+  border-color: rgba(102, 126, 234, 0.4);
   box-shadow: var(--shadow-sm);
 }
 
 details[open] {
-  background: rgba(102, 126, 234, 0.08);
+  background: rgba(102, 126, 234, 0.12);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
-summary {
+details summary {
   font-weight: 600;
   cursor: pointer;
   padding: 0.25rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: '▶';
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  color: var(--ifm-color-primary);
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details>*:not(summary) {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+[data-theme='dark'] details {
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+[data-theme='dark'] details:hover {
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+[data-theme='dark'] details[open] {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+[data-theme='dark'] details>*:not(summary) {
+  border-left-color: rgba(167, 139, 250, 0.3);
 }
 
 /* ===== Footer ===== */
