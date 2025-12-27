@@ -1,23 +1,268 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* Homepage - MDN-Inspired Style */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+/* Main container */
+.main {
+  background: var(--ifm-background-color);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1b1b1b 0%, #2d2d2d 100%);
+  min-height: 400px;
   position: relative;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.heroContent {
+  max-width: 600px;
+  z-index: 2;
+  padding-left: 2rem;
+}
+
+.heroTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+}
+
+.heroTitleAccent {
+  color: #8cb4ff;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.heroSubtitle a {
+  color: #8cb4ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.heroSubtitle a:hover {
+  color: #a8c9ff;
+}
+
+/* Search Box */
+.searchBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.searchBox:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.searchIcon {
+  font-size: 1rem;
+}
+
+.searchText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+/* Hero Graphic */
+.heroGraphic {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  opacity: 0.15;
+}
+
+.codePattern {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 30% 30%, #8cb4ff 1px, transparent 1px),
+    radial-gradient(circle at 70% 70%, #8cb4ff 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 50%;
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.buttons {
+/* ===== Featured Section ===== */
+.featured {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featuredTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 0 1rem;
+}
+
+/* Feature Card */
+.featureCard {
+  display: block;
+  padding: 1.25rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.featureCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.featureCategory {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  margin: 0 0 0.5rem;
+}
+
+.featureDescription {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Quick Links Section ===== */
+.quickLinks {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border-color, #e5e5e5);
+}
+
+.quickLinksGroup {
+  flex: 1;
+}
+
+.quickLinksTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1rem;
+}
+
+.quickLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quickLinksList li {
+  margin-bottom: 0.5rem;
+}
+
+.quickLinksList a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.quickLinksList a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Dark Mode ===== */
+[data-theme='dark'] .featureCard {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--border-color, #3d3d3d);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .quickLinks {
+  border-color: var(--border-color, #3d3d3d);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  .heroContent {
+    padding-left: 0;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroGraphic {
+    display: none;
+  }
+
+  .quickLinks {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .featured {
+    padding: 2rem 1rem;
+  }
+
+  .featureGrid {
+    padding: 0;
+  }
 }

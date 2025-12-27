@@ -55,7 +55,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/', // Serve docs at root
+          routeBasePath: '', // CSS docs at root paths like /Introduction/css-syntax
         },
         blog: false, // Disable blog for now to focus on docs
         theme: {
