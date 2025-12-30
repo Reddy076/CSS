@@ -547,8 +547,31 @@ details summary strong {
   h2 {
     font-size: 1.25rem;
   }
+}
 
-  article {
-    font-size: 0.95rem;
-  }
+/* ===== Auth Toggle Logic ===== */
+/* By default, hide logout, show login */
+.auth-item-logout {
+  display: none !important;
+}
+
+/* When logged in: hide login, show logout */
+html.user-logged-in .auth-item-login {
+  display: none !important;
+}
+
+html.user-logged-in .auth-item-logout {
+  display: flex !important;
+  /* Navbar items are usually flex */
+}
+
+/* On auth pages: hide login buttons to remove redundancy */
+html[data-curr-path='/login'] .auth-item-login,
+html[data-curr-path='/register'] .auth-item-login {
+  display: none !important;
+}
+
+/* Hide protected items (CSS, JS) when not logged in */
+html:not(.user-logged-in) .protected-item {
+  display: none !important;
 }
